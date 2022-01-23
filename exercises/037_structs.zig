@@ -34,17 +34,14 @@ const Class = enum {
 // it a u8 integer type.
 const Character = struct {
     class: Class,
+    health: u8,
     gold: u32,
     experience: u32,
 };
 
 pub fn main() void {
     // Please initialize Glorp with 100 health.
-    var glorp_the_wise = Character{
-        .class = Class.wizard,
-        .gold = 20,
-        .experience = 10,
-    };
+    var glorp_the_wise = Character{ .class = Class.wizard, .gold = 20, .experience = 10, .health = 100 };
 
     // Glorp gains some gold.
     glorp_the_wise.gold += 5;
@@ -52,7 +49,7 @@ pub fn main() void {
     // Ouch! Glorp takes a punch!
     glorp_the_wise.health -= 10;
 
-    std.debug.print("Your wizard has {} health and {} gold.\n", .{
+    std.debug.print("Your wizard has {} health and {} gold.", .{
         glorp_the_wise.health,
         glorp_the_wise.gold,
     });

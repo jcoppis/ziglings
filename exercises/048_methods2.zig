@@ -11,7 +11,7 @@ const Elephant = struct {
 
     // New Elephant methods!
     pub fn getTail(self: *Elephant) *Elephant {
-        return self.tail.?; // Remember, this means "orelse unreachable"
+        return self.tail.?; // Remember, this is means "orelse unreachable"
     }
 
     pub fn hasTail(self: *Elephant) bool {
@@ -34,7 +34,7 @@ pub fn main() void {
     var elephantB = Elephant{ .letter = 'B' };
     var elephantC = Elephant{ .letter = 'C' };
 
-    // This links the elephants so that each tail "points" to the next.
+    // Link the elephants so that each tail "points" to the next.
     elephantA.tail = &elephantB;
     elephantB.tail = &elephantC;
 
@@ -54,7 +54,7 @@ fn visitElephants(first_elephant: *Elephant) void {
 
         // This gets the next elephant or stops:
         // which method do we want here?
-        e = if (e.hasTail()) e.??? else break;
+        e = if (e.hasTail()) e.getTail() else break;
     }
 }
 

@@ -1,4 +1,4 @@
-//
+ //
 // You can assign some code to run _after_ a block of code exits by
 // deferring it with a "defer" statement:
 //
@@ -20,6 +20,6 @@ const std = @import("std");
 pub fn main() void {
     // Without changing anything else, please add a 'defer' statement
     // to this code so that our program prints "One Two\n":
-    std.debug.print("Two\n", .{});
+    defer std.debug.print("Two\n", .{});
     std.debug.print("One ", .{});
 }
